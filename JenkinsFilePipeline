@@ -1,0 +1,35 @@
+pipeline {
+    agent {
+        docker {
+            image 'node:18.17.1-alpine3.18'
+        }
+    }
+    environment {
+        FIREBASE_DEPLOY_TOKEN = credentials('firebase-token')
+    }
+    stages {
+        stage('Building') {
+            steps {
+                sh 'npm install -g firebase-tools'
+            }
+        } 
+
+        stage('Testing') {
+            steps {
+                sh 'firebase deploy -P tictactest-bbe60 --token "$FIREBASE_DEPLOY_TOKEN"'
+            }
+        }
+
+        stage('Staging') {
+            steps {
+                sh 'firebase deploy -P tictacstage --token "$FIREBASE_DEPLOY_TOKEN"'
+            }
+        }
+
+        stage('Production') {
+            steps {
+                sh 'firebase deploy -P tictacprod-695ac --token "$FIREBASE_DEPLOY_TOKEN"'
+            }
+        }
+    }
+}
