@@ -1,5 +1,5 @@
 <!--
-# This project is based on a public project but has been modified 
+# This project is based on a public project but has been modified
 # according to the requirements of the DevOps Level 2 course.
 # Instructor: Washington Valencia
 # Institution: CCTB College
@@ -14,7 +14,6 @@
   <link href="style.css" rel="stylesheet">
   <link rel="shortcut icon" type="image/x-icon"
     href="https://canvascctb.s3.ca-central-1.amazonaws.com/account_1/attachments/95/CCTB_favicon.ico" />
-
 </head>
 
 <body onload="initialize()">
@@ -55,8 +54,9 @@
       </td>
     </tr>
   </table>
-  <div id="restart" title="Start new game" onclick="restartGame(true)"><span
-      style="vertical-align:top;position:relative;top:-10px">#</span></div>
+  <div id="restart" title="Start new game" onclick="restartGame(true)">
+    <span style="vertical-align:top;position:relative;top:-10px">#</span>
+  </div>
   <table>
     <tr>
       <th class="th_list">Computer</th>
@@ -99,7 +99,15 @@
       <p><button id="okBtn" onclick="getOptions()">Play</button></p>
     </div>
   </div>
-</body>
-<script src="js.js"></script>
-
-</html>
+  
+  <!-- Footer with Name and Current Date/Time -->
+  <footer style="text-align: center; margin-top: 20px;">
+    <p>Jorge Lucas - <span id="currentDateTime"></span></p>
+  </footer>
+  
+  <script>
+    // Update the footer with the current date and time
+    document.getElementById("currentDateTime").innerText = new Date().toLocaleString();
+  </script>
+  
+  <
