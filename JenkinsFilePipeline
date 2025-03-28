@@ -16,19 +16,19 @@ pipeline {
 
         stage('Testing') {
             steps {
-                sh 'firebase deploy -P tictactest-bbe60 --token "$FIREBASE_DEPLOY_TOKEN"'
+                sh "firebase deploy -P tictactest-bbe60 --token ${FIREBASE_DEPLOY_TOKEN}"
             }
         }
 
         stage('Staging') {
             steps {
-                sh 'firebase deploy -P tictacstage --token "$FIREBASE_DEPLOY_TOKEN"'
+                sh "firebase deploy -P tictacstage --token ${FIREBASE_DEPLOY_TOKEN}"
             }
         }
 
         stage('Production') {
             steps {
-                sh 'firebase deploy -P tictacprod-695ac --token "$FIREBASE_DEPLOY_TOKEN"'
+                sh "firebase deploy -P tictacprod-695ac --token ${FIREBASE_DEPLOY_TOKEN}"
             }
         }
     }
